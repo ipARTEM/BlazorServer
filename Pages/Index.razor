@@ -12,9 +12,43 @@
     </div>
 </div>
 
-<GameListTable></GameListTable>
+<GameListTable Games="games"></GameListTable>
+<IndividualGame Game="games[0]" IsTable="false"/>
 
 
 @code{
-   
+
+    List<Game> games;
+
+    protected  override void OnInitialized()
+    {
+        //await Task.Delay(3000);
+
+        games = new List<Game>()
+        {
+            new Game()
+            {
+                Name="Farming Simulator 2021",
+                Genre="Simulator",
+                ReleaseDate=new DateTime(2021,06,16)
+            },
+
+            new Game()
+            {
+                Name="The Witcher",
+                Genre="Action/RPG",
+                ReleaseDate=new DateTime(2019,05,16)
+            },
+
+            new Game()
+            {
+                Name="Destroy All Humans!",
+                Genre="Action-Adventure",
+                ReleaseDate=new DateTime(2020,04,16)
+            },
+        };
+
+    }
+
+
 }

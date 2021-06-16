@@ -4,6 +4,8 @@
 
 <p>Current count: @currentCount</p>
 
+<GameListTable Games="otherGames"></GameListTable>
+
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
@@ -12,5 +14,32 @@
     private void IncrementCount()
     {
         currentCount++;
+    }
+
+    List<Game> otherGames;
+
+    protected override void OnInitialized()
+    {
+        //await Task.Delay(3000);
+
+        otherGames = new List<Game>()
+        {
+            new Game()
+            {
+                Name="Test counter",
+                Genre="counter",
+                ReleaseDate=new DateTime(3021,06,16)
+            },
+
+            new Game()
+            {
+                Name="The Witcher",
+                Genre="Action/RPG",
+                ReleaseDate=new DateTime(2019,05,16)
+            },
+
+            
+        };
+
     }
 }
