@@ -5,6 +5,7 @@
                 <th>Name</th>
                 <th>Genre</th>
                 <th>Release Date</th>
+                <th><input type="checkbox" @onchange="(()=>displayButtons=!displayButtons)" /></th>
             </tr>
         </thead>
 
@@ -31,7 +32,7 @@
 
                     </tr>*@
 
-                    <IndividualGame Game="item" IsTable="true"></IndividualGame>
+                    <IndividualGame Game="item" IsTable="true" DisplayButtons="displayButtons"></IndividualGame>
 
                 }
             }
@@ -47,5 +48,7 @@
     [Parameter]
     public List<Game> Games { get; set; }
 
-   
+    bool displayButtons = false;
+
+
 }
