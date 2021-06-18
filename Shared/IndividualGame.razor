@@ -15,6 +15,8 @@
         <div class="row">
             <div class="col offset-3">
                 <button class="btn btn-danger" @onclick="Delete">Delete</button>
+                <button class="btn btn-info" @onclick="SwitchGame">Delete</button>
+
             </div>
             <div class="col">
                 @if (message != null)
@@ -44,6 +46,10 @@ else
             @if (DisplayButtons)
             {
                 <button class="btn btn-danger" @onclick="Delete">Delete</button>
+                <button class="btn btn-danger" @onclick="(()=>DeleteGeme.InvokeAsync(Game))">Delete</button>
+
+
+
                 @if (message != null)
                 {
                     <span class="text-danger pl-3">@message</span>
@@ -52,12 +58,8 @@ else
 
 
             }
-
-
         </td>
-
     </tr>
-
 }
 
 
@@ -68,7 +70,14 @@ else
     [Parameter]
     public bool IsTable { get; set; }
 
-    [Parameter] public bool DisplayButtons { get; set; } = false;
+    [Parameter]
+    public bool DisplayButtons { get; set; } = false;
+
+    [Parameter]
+    public  EventCallback<Game> DeleteGeme { get; set; }
+
+    [Parameter]
+    public EventCallback SwitchGame { get; set; }
 
     string message;
 
